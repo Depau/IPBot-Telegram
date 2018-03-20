@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram IP Bot
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+# The user and group need to be created
+User=ipbot
+Group=ipbot
+Restart=on-failure
+RestartSec=5
+# Adjust path
+ExecStart=/usr/local/bin/ipbot <token> <id list>
+
+[Install]
+WantedBy=multi-user.target
